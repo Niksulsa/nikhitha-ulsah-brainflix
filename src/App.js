@@ -15,14 +15,26 @@ class App extends React.Component {
     selectedVideo:videoDetails[0]
   };  
   
+  handleEvent=(clickedId)=>{
+    const foundVideo=videoDetails.find((video)=>clickedId===video.id)
+    
+    this.setState({
+      selectedVideo:foundVideo,
+    })
+  };
   render(){
+    const filteredVideo=this.state.videos.filter((video)=>video.id !==this.state.selectedVideo.id);
     return (
       <div className="App">
         <Header />
         <Hero selectedVideo={this.state.selectedVideo}/>
-        <Details selectedVideo={this.state.selectedVideo}/>
-        <Comments selectedVideo={this.state.selectedVideo}/>
-        <AsideList videos={this.state.videos}/>
+        <div className="content">   
+          <div className="content__left"> 
+             <Details selectedVideo={this.state.selectedVideo}/>
+             <Comments selectedVideo={this.state.selectedVideo}/>
+          </div>   
+          <AsideList videos={this.handleEvent}/>
+        </div>
       </div>
     );
   }

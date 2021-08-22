@@ -1,22 +1,2 @@
-.card-container{
-    display:flex;
 
-    &__imagebox{
-        width:50%;
-        padding: 0.5rem;
-    }
-
-    &__image{
-        width:100%;
-        height:15vh;    
-    }
-
-    &__details{
-        display: flex;
-        flex-direction: column;
-        font-size: 0.5rem;
-        width:50%;
-        padding:0.5rem;
-    }
-}
 

@@ -1,3 +1,9 @@
-.hero__video{
+.hero{
     width:100%;
+    text-align: center;
+    background-color: black;
+
+    &__video{
+        width:95%;
+    }
 }

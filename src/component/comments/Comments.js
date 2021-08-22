@@ -10,8 +10,8 @@ export const Comments=({selectedVideo})=> (
             <div className="comment__numbers">{selectedVideo.comments.length } Comments</div>
             <div className="comment__form">
                  <img className="comment__avatar" src={Avatar} alt=""/>
-                 <form id="add-comment">
-                     <label className="comment__conversation">JOIN THE CONVERSATION
+                 <form className="comment__formmain" id="add-comment">
+                     <label className="comment__conversation">JOIN THE CONVERSATION<br/>
                          <input className="comment__input" type="text" name="comment" placeholder="write comment here"  />
                      </label>                        
                     <br />   

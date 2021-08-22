@@ -1,6 +1,39 @@
+@use '../../partials/mixins' as*;
 
 .header{
     text-align: center;
+
+    @include tablet{
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__uploadbox{
+        display: flex;
+        flex-direction: column;
+
+        @include tablet{
+            flex-direction: row;
+            width:60%;
+        }
+    }
+
+    &__logo{
+        @include desktop{
+            width:12%;
+            margin-left: 5rem;
+
+        }
+    }
+
+    &__avatarbox{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width:100%;
+        padding: 0.5rem 1rem;
+    }
 
     &__search{
         background-image: url('../../assets/Icons/Icon-search.svg');
@@ -24,11 +57,16 @@
         border:none;
         width:70%;
         height: 6vh;
+        border-radius: 5%;
+
+        @include desktop{
+            
+        }
     }
 
     &__avatar{
-        width: 3rem;
-        height: 3rem;
+        width: 4rem;
+        height: 4rem;
         border-radius: 50%;
         padding: 0.5rem;
     }

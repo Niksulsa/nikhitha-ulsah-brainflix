@@ -1,5 +1,23 @@
 @use './partials/fonts' as *;
+@use '../src/partials/mixins' as *;
 
 .App{
     padding:0.3rem;
+}
+
+.content{
+    @include desktop{
+        display: flex;
+        justify-content: space-between;
+        margin:1rem 5rem;
+    }
+
+    &__left{
+
+        @include desktop{
+        width:70%;
+        height:100%;
+        }
+    }
+
 }
