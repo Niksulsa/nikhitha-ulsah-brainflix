@@ -1,0 +1,39 @@
+.details{
+    padding:0.5rem;
+
+
+    &__currentvideoname{
+        font-size: 1.5rem;
+        color:#323232;
+        padding: 0.3rem;
+    }
+
+    &__videoby{
+        font-size: 1rem;
+        color:#323232;
+        padding: 0.3rem;
+        
+    }
+    &__uploaddate{
+        padding: 0.3rem;
+
+    }
+
+    &__social{
+        display: flex;
+        width:65%;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+    }
+
+    &__videodetails{
+        border-top: 2px solid #E1E1E1;
+        padding: 1rem 0;
+        margin:0;
+    }
+    &__uploaderdetails{
+        display:flex;
+    }
+
+}

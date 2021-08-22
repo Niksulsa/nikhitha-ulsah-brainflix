@@ -1,9 +1,8 @@
-import Card from "../../card/card";
+import './hero.scss';
+ const Hero = ({selectedVideo}) => (
+  <div className="hero">
+    <video className="hero__video" poster={selectedVideo.image}/>
+  </div>
+ );
 
-export const Hero = (props) => (
-    <div className='card-list'>
-      {props.videos.map((video) => (
-        <Card key={video.id} video={video}></Card>
-      ))}
-    </div>
-  );
+  export default Hero;

@@ -1,4 +1,35 @@
+
 .header{
-    display:flex;
-    justify-content: space-between;
+    text-align: center;
+
+    &__search{
+        background-image: url('../../assets/Icons/Icon-search.svg');
+        opacity:0.75;
+        background-repeat: no-repeat;
+        width:90%;
+        height: 6vh;
+        border-radius: 5%;
+        border-style: groove;
+        border-color:#E1E1E1;
+        background-color: #FAFAFA;
+    }
+    &__uploadbox{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__upload{
+        background-color: #0095FF;
+        color:#fff;
+        border:none;
+        width:70%;
+        height: 6vh;
+    }
+
+    &__avatar{
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        padding: 0.5rem;
+    }
 }

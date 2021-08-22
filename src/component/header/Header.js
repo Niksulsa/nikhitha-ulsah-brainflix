@@ -1,17 +1,21 @@
 import React from 'react'
 import SearchBox from '../search-box/SearchBox'
-import './header.scss'
-
+import './header.scss';
+import Logo from '../../assets/logo/logo-brainflix.svg';
+import Avatar from '../../assets/Images/mohan-muruge.jpg'
 
 function Header() {
     return (
         <div className="header">
-            <img src="../assets/logo/logo-brainflix.svg" alt="logo"/>
+            <img src={Logo} alt="logo"/>
             <div>
-                 <SearchBox/>
-                 <button>Upload</button>
-                 <img src="./assets/images/mohan-muruge.jpg"alt="mohan-muruge"/>
+                <SearchBox/>
             </div>
+            <div className="header__uploadbox">
+                 <button className="header__upload">Upload</button>
+                 <img className="header__avatar" src={Avatar}alt="mohan-muruge"/>
+            </div>    
+        
         </div>
     )
 }

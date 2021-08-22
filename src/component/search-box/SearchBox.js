@@ -2,7 +2,7 @@ import "./search.scss";
 
 const SearchBox=({placeholder,handleChange})=>(
     <input 
-    className='search'
+    className='header__search'
     type='search'
     placeholder={placeholder}
     onChange={handleChange}
