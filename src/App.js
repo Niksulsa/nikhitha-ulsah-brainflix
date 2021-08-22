@@ -6,7 +6,7 @@ import videoDetails from './data/video-details.json';
 import Hero from './component/hero-container/Hero';
 import Details from './component/details/Details';
 import { Comments } from './component/comments/Comments';
-import Form from './component/forms/Forms'
+
 
 
 class App extends React.Component {
@@ -21,7 +21,6 @@ class App extends React.Component {
         <Header />
         <Hero selectedVideo={this.state.selectedVideo}/>
         <Details selectedVideo={this.state.selectedVideo}/>
-        <Form />
         <Comments selectedVideo={this.state.selectedVideo}/>
         <AsideList videos={this.state.videos}/>
       </div>
