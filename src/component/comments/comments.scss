@@ -77,6 +77,10 @@
            align-self: flex-end;
         }
 
+        @include desktop{
+            height:4vh;
+        }
+
     }
     &__avatardiv{
         background-color:#E1E1E1;

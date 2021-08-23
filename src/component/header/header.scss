@@ -36,20 +36,30 @@
     }
 
     &__search{
-        background-image: url('../../assets/Icons/Icon-search.svg');
+        background-image: url('../../assets/Icons/Icon-search.svg') ;
         opacity:0.75;
         background-repeat: no-repeat;
+        background-size:1.6rem;
         width:90%;
-        height: 6vh;
+        height: 5vh;
         border-radius: 5%;
         border-style: groove;
         border-color:#E1E1E1;
         background-color: #FAFAFA;
+        padding-left:2rem;
+        font-size: 1rem;
+
+        @include desktop{
+            background-size:3rem;
+            font-size: 1.5rem;
+            padding-left:3rem;
+        }
     }
     &__uploadbox{
         display: flex;
         justify-content: center;
         align-items: center;
+
     }
     &__upload{
         background-color: #0095FF;
@@ -60,7 +70,7 @@
         border-radius: 5%;
 
         @include desktop{
-            
+            font-size: 1.5rem;
         }
     }
 

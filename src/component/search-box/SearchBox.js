@@ -1,10 +1,8 @@
-import "./search.scss";
-
-const SearchBox=({placeholder,handleChange})=>(
+const SearchBox=({handleChange})=>(
     <input 
     className='header__search'
     type='search'
-    placeholder={placeholder}
+    placeholder='Search'
     onChange={handleChange}
     />
 );
