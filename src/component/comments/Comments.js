@@ -3,11 +3,12 @@ import { CommentItem } from '../comment-items/CommentItem';
 import './comments.scss';
 import Avatar from '../../assets/Images/mohan-muruge.jpg';
 
-export const Comments=({currentVideo})=> (
-    
+export const Comments=({currentVideo})=> {
+    console.log(currentVideo.comments)
+    return(
     <section className="comment">
         <article className="comment__container">
-            <div className="comment__numbers">{currentVideo.comments.length } Comments</div>
+            <div className="comment__numbers">{currentVideo.comments.length} Comments</div>
             <div className="comment__form">
                  <img className="comment__avatar" src={Avatar} alt=""/>
                  <form className="comment__formmain" id="add-comment">
@@ -24,5 +25,5 @@ export const Comments=({currentVideo})=> (
              <CommentItem key={comment.id} comment={comment}/>))}
         </article>
     </section>
-);
+    )};
 

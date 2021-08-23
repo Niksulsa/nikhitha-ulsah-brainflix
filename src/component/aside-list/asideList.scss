@@ -3,11 +3,11 @@
     border-top: 2px solid #E1E1E1;
 
     @include tablet{
-        width:40%;
+        width:100%;
     }
 
     @include desktop{
-        width:30%;
+        width:40%;
         border-top:none;
     }
 
@@ -23,23 +23,29 @@
         border-radius: 5%;
 
         @include desktop{
-            width:100%;
+            width:50%;
             
         }
     }
 
     &__carditem{
         display:flex;
-
-    
-    }
-    
-    &__imagebox{
-        width:100%; 
-        padding: 0.5rem;
+        @include tablet{
+            width:60%;
+        }
 
         @include desktop{
             width:100%;
+        }
+
+    }
+    
+    &__imagebox{
+        width:50%; 
+        padding: 0.5rem;
+
+        @include desktop{
+            width: 60%;
             
         }
     }

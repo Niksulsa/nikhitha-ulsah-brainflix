@@ -13,18 +13,22 @@ import { Comments } from './component/comments/Comments';
 class App extends React.Component {
   state={
     videos:videoData,
-    currentVideo:videoDetails[0],
+    videoDetails:videoDetails,
+    currentVideo:videoDetails[0]
+
   };  
   
   handleEvent=(clickedId)=>{
-    const foundVideo=this.state.videoDetails.find((video)  => clickedId === video.id)
-    
+    //console.log(clickedId);
+    const foundVideo=this.state.videoDetails.find(video  => clickedId === video.id)
+  
     this.setState({
-      currentVideo:foundVideo,
+      currentVideo:foundVideo
     })
   };
   render(){
     const filteredVideo=this.state.videos.filter((video)=>video.id !==this.state.currentVideo.id);
+    //console.log(filteredVideo);
 
     return (
       <div className="App">

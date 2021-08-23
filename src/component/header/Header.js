@@ -11,7 +11,7 @@ function Header() {
             <div className="header__uploadbox">
                 <SearchBox/>
                 <div className="header__avatarbox">
-                     <button className="header__upload">Upload</button>
+                     <button className="header__upload"><span classname="header__uploadsign">&#43;</span>Upload</button>
                     <img className="header__avatar" src={Avatar}alt="mohan-muruge"/>
                 </div>
             </div>    

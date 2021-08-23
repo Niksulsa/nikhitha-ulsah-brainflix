@@ -19,16 +19,14 @@
         justify-content: center;
 
         @include tablet{
-            display: flex;
-            align-items: center;
+            @include display();
         }
        
     }
 
     &__formmain{
         @include tablet{
-            display: flex;
-            align-items: center;
+            @include display();
 
         }
     }
@@ -52,8 +50,7 @@
         height:5.5rem;
         border:2px solid #E1E1E1;
         border-radius: 2%;
-        background-color: #fafafa;
-        padding: 1rem;
+        background-color: #fafafa;  
         margin-top: 0.5rem;
 
         @include tablet{

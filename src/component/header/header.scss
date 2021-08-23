@@ -1,4 +1,5 @@
 @use '../../partials/mixins' as*;
+@use '../../partials/variables' as *;
 
 .header{
     text-align: center;
@@ -18,6 +19,7 @@
             width:60%;
         }
     }
+
 
     &__logo{
         @include desktop{
@@ -44,7 +46,7 @@
         height: 5vh;
         border-radius: 5%;
         border-style: groove;
-        border-color:#E1E1E1;
+        border-color:$text-field-border;
         background-color: #FAFAFA;
         padding-left:2rem;
         font-size: 1rem;
@@ -62,7 +64,7 @@
 
     }
     &__upload{
-        background-color: #0095FF;
+        background-color:$button;
         color:#fff;
         border:none;
         width:70%;
