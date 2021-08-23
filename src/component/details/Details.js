@@ -2,6 +2,7 @@ import React from 'react';
 import './details.scss';
 import View from '../../assets/Icons/Icon-views.svg';
 import Like from '../../assets/Icons/Icon-likes.svg';
+import Formatteddate from '../timestamp/Formatteddate';
 
 const Details=({currentVideo}) =>{
     return (
@@ -10,7 +11,7 @@ const Details=({currentVideo}) =>{
             <div className="details__uploadbox">
                  <div className="details__uploaderdetails">
                      <h2 className="details__videoby">by {currentVideo.channel}</h2>
-                     <span className="details__uploaddate">{new Date(currentVideo.timestamp ).toDateString()}</span>
+                     <span className="details__uploaddate">{Formatteddate(currentVideo.timestamp)}</span>
                  </div>
                  <div className="details__social">
                      <img className="details__viewimage" src={View} alt=""/><span className="card__views">{currentVideo.views}</span>

@@ -1,9 +1,9 @@
-const SearchBox=({handleChange})=>(
+const SearchBox=()=>(
     <input 
     className='header__search'
     type='search'
     placeholder='Search'
-    onChange={handleChange}
+    //onChange={handleChange}
     />
 );
 

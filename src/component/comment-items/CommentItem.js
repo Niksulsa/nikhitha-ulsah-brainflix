@@ -1,3 +1,4 @@
+import Formatteddate from "../timestamp/Formatteddate";
 
 export const CommentItem=({comment})=> {
     return (
@@ -6,7 +7,7 @@ export const CommentItem=({comment})=> {
         <div className="comment__details">
             <div className="comment__nametimebox">
                 <h3 className="comment__name">{comment.name}</h3>
-                <span className="comment__date">{Date(comment.timestamp).split(' ',4).join(' ')}</span>
+                <span className="comment__date">{Formatteddate(comment.timestamp)}</span>
             </div>
              <div className="comment__comments">{comment.comment}</div>
         </div>  
