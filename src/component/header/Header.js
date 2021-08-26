@@ -7,15 +7,19 @@ import Avatar from '../../assets/Images/mohan-muruge.jpg'
 function Header() {
     return (
         <div className="header">
-            <img className="header__logo"src={Logo} alt="logo"/>
+            <img className="header__logo"
+                src={Logo}
+                alt="logo"/>
             <div className="header__uploadbox">
                 <SearchBox/>
                 <div className="header__avatarbox">
-                     <button className="header__upload"><span classname="header__uploadsign">&#43;</span>Upload</button>
-                    <img className="header__avatar" src={Avatar}alt="mohan-muruge"/>
+                    <button className="header__upload">
+                        <span classname="header__uploadsign">&#43;</span>Upload</button>
+                    <img alt="mohan-muruge" className="header__avatar"
+                        src={Avatar}/>
                 </div>
-            </div>    
-        
+            </div>
+
         </div>
     )
 }

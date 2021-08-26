@@ -7,7 +7,7 @@
     }
 
     @include desktop{
-        width:40%;
+        width:100%;
         border-top:none;
     }
 
@@ -21,6 +21,7 @@
 
     &__image{
         border-radius: 5%;
+        object-fit: cover;
 
         @include desktop{
             width:50%;
@@ -41,7 +42,7 @@
     }
     
     &__imagebox{
-        width:50%; 
+        width:40%; 
         padding: 0.5rem;
 
         @include desktop{

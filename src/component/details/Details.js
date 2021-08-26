@@ -5,6 +5,7 @@ import Like from '../../assets/Icons/Icon-likes.svg';
 import Formatteddate from '../timestamp/Formatteddate';
 
 const Details=({currentVideo}) =>{
+    console.log(currentVideo);
     return (
         <div className="details">
             <h1 className="details__currentvideoname">{currentVideo.title}</h1>
