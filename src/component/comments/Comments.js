@@ -7,28 +7,13 @@ import API_URL from '../../utils/Utils';
 import API_KEY from '../../utils/Utils';
 
 
-class Comments extends React.Component {
-    state = {
-        comments: []
-    }
-
-    getComments = (clickedId) => {
-        axios.get("https://project-2-api.herokuapp.com/videos/"+clickedId+"?api_key=65d53841-74a4-4388-b36b-1efa54703dbf").then((response) => {
-            this.setState({comments: response.data})
-        }).catch(console.log)
-    }
-
-    componentDidMount = () => {
-        this.getComments();
-    }
-
-    render() {
-
+function Comments ({currentVideo}){
+    console.log(currentVideo.comments)
         return (
             <section className="comment">
                 <article className="comment__container">
                     <div className="comment__numbers">
-                        {this.state.comments.length}
+                        {currentVideo.comments.length}
                         Comments</div>
                     <div className="comment__form">
                         <img className="comment__avatar"
@@ -44,17 +29,14 @@ class Comments extends React.Component {
                     </div>
                 </article>
                 <article className="comment__itemcontainer">
-                    {this.state.comments.map((comment => {
+                    {currentVideo.comments.map((comment => (
                         <CommentItem key={comment.id}
                             comment={comment}/>
-                         })
+                    ))
                     )}
                 </article>
             </section>
         )
     };
-
-}
-
 
 export default Comments

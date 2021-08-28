@@ -1,8 +1,6 @@
 import '../App.scss';
 import React from 'react';
 import {AsideList} from '../component/aside-list/AsideList';
-// import videoData from '../data/videos.json';
-// import videoDetails from '../data/video-details.json';
 import Hero from '../component/hero-container/Hero';
 import Details from '../component/details/Details';
 import Comments from '../component/comments/Comments';
@@ -14,7 +12,7 @@ import axios from 'axios';
 class HomePage extends React.Component {
     state = {
         videos: [],
-        currentVideo: {}
+        currentVideo: null
     };
 
     getVideoId(id) {
@@ -29,7 +27,7 @@ class HomePage extends React.Component {
         if (this.props.match.params.videoId) {
             this.getVideoId(this.props.match.params.videoId)
         } else {
-            axios.get("https://project-2-api.herokuapp.com/videos/?api_key=65d53841-74a4-4388-b36b-1efa54703dbf").then((response) => {
+            axios.get(`${API_URL}?api_key=${API_KEY}`).then((response) => {
                 console.log(response.data)
                 this.getVideoId(response.data[0].id)
             })
@@ -37,6 +35,7 @@ class HomePage extends React.Component {
     }
 
     componentDidMount() {
+        console.log("Mounted");
         axios.get(`${API_URL}?api_key=${API_KEY}`).then((response) => {
             this.setState({videos: response.data})
         });
@@ -52,7 +51,12 @@ class HomePage extends React.Component {
 
     }
 
-    render() { // console.log(this.props.match.params.videoId);
+    render() {
+
+        if(!this.state.currentVideo){
+            return <h1>...Loading</h1>
+        }
+
         const filteredVideo = this.state.videos.filter((video) => video.id !== this.state.currentVideo.id);
         // console.log(filteredVideo);
 
