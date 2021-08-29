@@ -9,7 +9,7 @@ export const AsideList=({videoItems})=>(
             //console.log(videoItems);
             //console.log(currentVideo);
             return(
-                <Link key={videoItems.id} to={`/${video.id}`}className='aside__carditem'>
+                <Link key={videoItems.id} to={`/${video.id}`} className='aside__carditem'>
                      <div className="aside__imagebox">
                          <img className="aside__image" key={video.id} src={video.image} alt="aside-images"/>
                     </div> 

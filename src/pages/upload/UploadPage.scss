@@ -1,0 +1,184 @@
+@use '../../partials/fonts' as *;
+@use '../../partials/mixins' as *;
+@use '../../partials/variables' as *;
+
+
+.upload{
+    padding: 0.5rem;
+
+    @include desktop{
+        padding: 1rem 5rem;
+        margin:4rem 2rem;
+    }
+
+    &__heading{
+        font-weight: 800;
+        padding: 0.5rem 0;
+
+        @include desktop{
+            font-size: 3rem;
+        }
+
+    }
+
+    &__thumbnail{
+        width:100%;
+
+        @include tablet{
+            width:40%;
+            object-fit: cover;
+        }
+
+        @include desktop{
+            width:100%;
+        }
+    }
+
+    &__thumbnailbox{
+        padding: 1rem 0rem ;
+
+        @include tablet{
+            border-top: 2px solid $text-field-border;
+        }
+
+        @include desktop{
+            width:40%;
+            border-top: none;
+        }
+    }
+
+    &__thumbnailheading{
+        color:$text-label-style;
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding:0.3rem 0;
+
+        @include desktop{
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
+    }
+
+    &__container{
+
+        @include desktop{
+            display: flex;
+            border-top: 3px solid $text-field-border;
+
+        }
+        
+    }
+
+    &__formcontainer{
+
+        @include desktop{
+            width: 60%;
+            margin:2rem 1rem;
+        }
+    }
+
+    &__title{
+        color:$text-label-style;
+        font-size: 0.7rem;
+
+        @include desktop{
+            font-size: 1rem;
+        }
+
+    }
+
+    &__titlebox{
+        width: 100%;
+        padding:0.5rem 0;
+    }
+//Create Mixins for thse two
+    &__inputbox{
+        width:98%;
+        height:5vh;
+        background-color: $text-field-background-fill;
+        border: 1px solid $text-field-border;
+        border-radius: 5%;
+        color:black;
+        padding:0 0.5rem;
+
+        @include desktop{
+            margin: 1rem 0rem;
+        }
+    }
+
+    &__videodescription{
+        width:98%;
+        height:10vh;
+        background-color: $text-field-background-fill;
+        border: 1px solid $text-field-border;
+        padding:0.5rem 0.5rem;
+        border-radius: 5%;
+
+    }
+
+    &__buttonbox{
+        display: flex;
+        flex-direction: column;
+        margin:1rem 0;
+
+        @include tablet{
+            flex-direction: row;
+            justify-content: flex-end;
+            border-top:2px solid $text-field-border;
+            padding: 1rem 0rem;
+
+        }
+
+    }
+
+    &__cancel{
+        color:$button;
+        font-weight: 900;
+        border:none;
+        background-color: white;
+        order:1;
+        margin: 0.5rem;
+
+        @include tablet{
+            margin: 0 2rem;
+        }
+
+        @include desktop{
+            font-size: 1.2rem;
+        }
+    }
+
+    &__publish{
+        background-color:$button;
+        color:#fff;
+        border:none;
+        width:98%;
+        height:5vh;
+        border-radius: 5%;
+        margin: 0.5rem;
+
+        @include tablet{
+            width:70%;
+        }
+
+        @include desktop{
+            font-size: 1.2rem;
+        }
+    }
+
+    &__publishbox{
+        width:98%;
+
+        @include tablet{
+            width:20%;
+            order: 1;
+        }
+
+        @include desktop{
+            width:40%;
+            text-align: center;
+        }
+    }
+
+
+}

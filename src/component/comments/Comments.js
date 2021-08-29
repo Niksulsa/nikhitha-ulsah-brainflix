@@ -2,9 +2,6 @@ import React from 'react';
 import {CommentItem} from '../comment-items/CommentItem';
 import './comments.scss';
 import Avatar from '../../assets/Images/mohan-muruge.jpg';
-import axios from 'axios';
-import API_URL from '../../utils/Utils';
-import API_KEY from '../../utils/Utils';
 
 
 function Comments ({currentVideo}){

@@ -1,4 +1,5 @@
 @use '../../partials/mixins' as*;
+@use '../../partials/variables' as *;
 .aside{
     border-top: 2px solid #E1E1E1;
 
@@ -22,6 +23,7 @@
     &__image{
         border-radius: 5%;
         object-fit: cover;
+        width: 100%;
 
         @include desktop{
             width:50%;
@@ -31,6 +33,8 @@
 
     &__carditem{
         display:flex;
+        text-decoration: none;
+        color:$navigation-background-para;
         @include tablet{
             width:60%;
         }
@@ -42,8 +46,12 @@
     }
     
     &__imagebox{
-        width:40%; 
+        width:50%; 
         padding: 0.5rem;
+
+        @include tablet{
+            width:40%;
+        }
 
         @include desktop{
             width: 60%;
