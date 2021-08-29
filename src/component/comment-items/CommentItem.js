@@ -1,7 +1,7 @@
 import Formatteddate from "../timestamp/Formatteddate";
 
 export const CommentItem=({comment})=> {
-    console.log(comment)
+    //console.log(comment)
     return (
     <div className="comment__item">
         <div className="comment__avatardiv"></div>

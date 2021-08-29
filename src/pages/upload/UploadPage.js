@@ -1,41 +1,47 @@
 import UploadThumbnail from '../../assets/Images/upload-video-preview.jpg';
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom';
-
 import './UploadPage.scss';
 
+
 export default class UploadPage extends Component {
-    state={
-       
+    state = {
+        title: "",
+        description: ""
     };
 
-    handleChange=(event)=>{
-        let formSubmit=this.formSubmitted();
-        console.log(formSubmit)
-        this.setState({
-            [event.target.title]:event.target.value
-        });
-    }
-
-    handlePublish=(event)=>{
+    handleSubmit = (event) => {
         event.preventDefault();
+        this.props.history.push('/home')
+        setTimeout(() => {
+            alert("Published successfully");
+        }, 1000);
+    };
 
-        if(this.formSubmitted()){
-            alert("Your form is submiiteed")
+    handleChange = (event) => {
+        let isValid = this.isFormValid();
+        console.log(isValid);
 
-        }
+        this.setState({[event.target.name]: event.target.value});
+
     }
 
-    formSubmitted=()=>{
-        if(
-            this.state.title && this.state.description
-        ){
+
+    isFormValid = () => {
+        if (!this.state.title || !this.state.description) {
+            return false;
+        } else 
             return true;
-        }
+        
 
     }
+
 
     render() {
+        let errorMessage = "";
+
+        if (!this.isFormValid()) {
+            errorMessage = "Please fill in the details";
+        }
         return (
             <section className="upload">
                 <div>
@@ -44,23 +50,48 @@ export default class UploadPage extends Component {
                 <div className="upload__container">
                     <div className="upload__thumbnailbox">
                         <h3 className="upload__thumbnailheading">VIDEO THUMBNAIL</h3>
-                        <img className="upload__thumbnail" src={UploadThumbnail}
-                            alt=""/>
+                        <video className="upload__thumbnail"
+                            poster={UploadThumbnail}/>
                     </div>
                     <section className="upload__formcontainer">
-                        <form onSubmit={this.handlePublish} className="upload__form">
+                        <form onSubmit={
+                                this.handleSubmit
+                            }
+                            className="upload__form">
                             <div className="upload__titlebox">
-                                <label htmlFor="name" className="upload__title">TITLE YOUR VIDEO</label><br />
-                                <input value={this.state.title} type="text" className="upload__inputbox" name="name" placeholder="Add a title to your video"/>
+                                <label htmlFor="title" className="upload__title">TITLE YOUR VIDEO</label><br/>
+                                <input onChange={
+                                        this.handleChange
+                                    }
+                                    value={
+                                        this.state.title
+                                    }
+                                    type="text"
+                                    className="upload__inputbox"
+                                    name="title"
+                                    placeholder="Add a title to your video"
+                                    required/>
+
                             </div>
                             <div className="upload__description">
-                                <label htmlFor="textarea" className="upload__title" >ADD A VIDEO DESCRIPTION</label>
-                                <textarea  value={this.state.description} name="comment" cols="35" rows="5" className="upload__videodescription" placeholder="Add a description to your video"></textarea>
+                                <label htmlFor="textarea" className="upload__title">ADD A VIDEO DESCRIPTION</label>
+                                <input onChange={
+                                        this.handleChange
+                                    }
+                                    value={
+                                        this.state.description
+                                    }
+                                    name="description"
+                                    className="upload__videodescription"
+                                    placeholder="Add a description to your video"
+                                    required></input>
+
                                 <div className="upload__buttonbox">
                                     <button id="cancel" type="reset" className="upload__cancel">CANCEL</button>
-                                    <Link to="/" className="upload__publishbox">
-                                        <button id="submit" type="submit" className="upload__publish">PUBLISH</button>
-                                    </Link>
+                                    <div className="upload__publishbox">
+                                        <button type="submit" className="upload__publish">PUBLISH</button>
+                                    </div>
+
                                 </div>
                             </div>
                         </form>

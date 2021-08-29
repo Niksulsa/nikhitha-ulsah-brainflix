@@ -5,7 +5,7 @@ import Avatar from '../../assets/Images/mohan-muruge.jpg';
 
 
 function Comments ({currentVideo}){
-    console.log(currentVideo.comments)
+    //console.log(currentVideo.comments)
         return (
             <section className="comment">
                 <article className="comment__container">
