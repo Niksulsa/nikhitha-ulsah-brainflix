@@ -1,6 +1,6 @@
-@use '../../partials/fonts' as *;
-@use '../../partials/mixins' as *;
-@use '../../partials/variables' as *;
+@use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
 
 
 .upload{
@@ -108,10 +108,11 @@
 
     &__videodescription{
         width:98%;
-        height:10vh;
+        height:15vh;
         background-color: $text-field-background-fill;
         border: 1px solid $text-field-border;
         padding:0.5rem 0.5rem;
+        text-align: unset;
         border-radius: 5%;
 
     }
@@ -159,6 +160,7 @@
 
         @include tablet{
             width:70%;
+            height:6vh;
         }
 
         @include desktop{

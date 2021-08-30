@@ -1,4 +1,3 @@
-import '../../App.scss';
 import React from 'react';
 import {AsideList} from '../../component/aside-list/AsideList';
 import Hero from '../../component/hero-container/Hero';
@@ -7,7 +6,8 @@ import Comments from '../../component/comments/Comments';
 import {API_URL} from '../../utils/Utils';
 import {API_KEY} from '../../utils/Utils';
 import axios from 'axios';
-import PopUp from '../../component/pop-up/PopUp';
+import '../../styles/App.scss';
+
 
 
 class HomePage extends React.Component {
@@ -64,7 +64,6 @@ class HomePage extends React.Component {
 
         return (
             <div className="App">
-                <PopUp message={""}/>
                 <Hero currentVideo={
                     this.state.currentVideo
                 }/>

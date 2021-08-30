@@ -1,5 +1,5 @@
-@use '../../partials/mixins' as*;
-@use '../../partials/variables' as *;
+@use '../../styles/partials/mixins' as*;
+@use '../../styles/partials/variables' as *;
 .aside{
     border-top: 2px solid #E1E1E1;
 
@@ -40,7 +40,7 @@
         }
 
         @include desktop{
-            width:100%;
+            width:70%;
         }
 
     }

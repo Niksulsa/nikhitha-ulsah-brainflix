@@ -1,6 +1,8 @@
 import UploadThumbnail from '../../assets/Images/upload-video-preview.jpg';
 import React, {Component} from 'react'
 import './UploadPage.scss';
+import swal from 'sweetalert';
+
 
 
 export default class UploadPage extends Component {
@@ -11,9 +13,12 @@ export default class UploadPage extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.history.push('/home')
+        this.props.history.push('/')
         setTimeout(() => {
-            alert("Published successfully");
+            swal( {title: "Good job!",
+            text: "You published the video sucessfully",
+            icon: "success",
+        });
         }, 1000);
     };
 
@@ -25,23 +30,15 @@ export default class UploadPage extends Component {
 
     }
 
-
     isFormValid = () => {
         if (!this.state.title || !this.state.description) {
             return false;
         } else 
-            return true;
-        
-
+            return true;   
     }
 
-
     render() {
-        let errorMessage = "";
 
-        if (!this.isFormValid()) {
-            errorMessage = "Please fill in the details";
-        }
         return (
             <section className="upload">
                 <div>
@@ -75,7 +72,7 @@ export default class UploadPage extends Component {
                             </div>
                             <div className="upload__description">
                                 <label htmlFor="textarea" className="upload__title">ADD A VIDEO DESCRIPTION</label>
-                                <input onChange={
+                                <textarea onChange={
                                         this.handleChange
                                     }
                                     value={
@@ -84,7 +81,7 @@ export default class UploadPage extends Component {
                                     name="description"
                                     className="upload__videodescription"
                                     placeholder="Add a description to your video"
-                                    required></input>
+                                    required></textarea>
 
                                 <div className="upload__buttonbox">
                                     <button id="cancel" type="reset" className="upload__cancel">CANCEL</button>

@@ -1,27 +1,22 @@
-import './App.scss';
 import Header from './component/header/Header';
 import React from 'react';
-import HomePage from '../src/pages/home/HomePage';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import UploadPage from './pages/upload/UploadPage';
-import PopUp from './component/pop-up/PopUp';
+import HomePage from './pages/home/HomePage';
+import './styles/App.scss';
 
 
 function App() {
     return (
         <BrowserRouter className="App">
-            <PopUp/>
             <Header/>
             <Switch>
             <Route path="/upload" 
                     component={UploadPage}/>
-                <Route path="/home" 
+                <Route path="/" exact 
                     component={HomePage}/>
                 <Route path="/:videoId"
-                    component={HomePage}/>   
-                <Route path="/home/upload"
-                render={(routerProps)=><PopUp message={"Video is published"}{...routerProps}/>}/>
-
+                    component={HomePage}/>       
             </Switch>
         </BrowserRouter>
     );

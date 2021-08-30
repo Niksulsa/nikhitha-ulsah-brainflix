@@ -1,5 +1,5 @@
-@use '../../partials/mixins' as*;
-@use '../../partials/variables' as *;
+@use '../../styles/partials/mixins' as*;
+@use '../../styles/partials/variables' as *;
 
 .header{
     text-align: center;
@@ -79,7 +79,7 @@
         width:100%;
 
         @include desktop{
-            width:70%;
+            width:50%;
            text-align: end;
         
         }

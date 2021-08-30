@@ -1,4 +1,4 @@
-@use '../../partials/mixins' as *;
+@use '../../styles/partials/mixins' as *;
 
 .hero{
     width:100%;
@@ -11,6 +11,10 @@
         height:60vh;
 
 
+    }
+
+    @include desktop{
+        height:70vh;
     }
 
     &__video{
