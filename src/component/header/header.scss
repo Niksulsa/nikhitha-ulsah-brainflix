@@ -7,9 +7,8 @@
 
     @include tablet{
         text-align: left;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include display;
+        justify-content: space-between;     
         margin:0rem 1rem;
     }
 
@@ -28,7 +27,7 @@
     }
 
     &__logo{
-        padding: 0.5rem 0;
+        padding: $medium-padding 0;
         @include desktop{
             width:100%;
             margin-left: 5rem;
@@ -37,11 +36,10 @@
     }
 
     &__avatarbox{
-        display: flex;
+        @include display;
         justify-content: space-between;
-        align-items: center;
         width:100%;
-        padding: 0.5rem 1rem;
+        padding: $medium-padding $large-padding;
 
         @include desktop{
             justify-content: space-around;
@@ -86,9 +84,9 @@
     
     }
     &__uploadbox{
-        display: flex;
+        @include display;
         justify-content: center;
-        align-items: center;
+        
 
     }
     &__upload{
@@ -101,7 +99,7 @@
 
         @include desktop{
             font-size: 1.5rem;
-            width:100%;
+            width:70%;
             text-align: center;
         }
     }
@@ -110,7 +108,7 @@
         width: 4rem;
         height: 4rem;
         border-radius: 50%;
-        padding: 0.5rem;
+        padding: $medium-padding;
 
         @include desktop{
             width:5.5rem;

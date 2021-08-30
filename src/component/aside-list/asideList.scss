@@ -13,7 +13,7 @@
     }
 
     &__next{
-        padding: 1.5rem 0.5rem;
+        padding: 1.5rem $medium-padding;
         font-size: 0.9rem;
         font-weight: 700;
         color:#AFAFAF;
@@ -47,7 +47,7 @@
     
     &__imagebox{
         width:50%; 
-        padding: 0.5rem;
+        padding: $medium-padding;
 
         @include tablet{
             width:40%;
@@ -74,11 +74,11 @@
         flex-direction: column;
         font-size: 0.5rem;
         width:50%;
-        padding:0.5rem;
+        padding:$medium-padding;
     }
 
     &__title{
-        padding: 0.3rem;
+        padding: $small-padding;
         font-weight: 600;
 
         @include desktop{
@@ -87,7 +87,7 @@
         }
     }
     &__channel{
-        padding: 0.3rem 0.3rem;
+        padding: $small-padding $small-padding;
         color: #323232;
         font-weight: 600;
 

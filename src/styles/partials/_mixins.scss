@@ -22,4 +22,11 @@
     display: flex;
     align-items: center;
   }
+
+
+  @mixin inputbox{
+    border:2px solid $text-field-border;
+    border-radius: 2%;
+    background-color: $text-field-background-fill; 
+  }
   
