@@ -4,16 +4,16 @@
 
 
 .upload{
-    padding: 0.5rem;
+    padding: $medium-padding;
 
     @include desktop{
-        padding: 1rem 5rem;
+        padding: $large-padding 5rem;
         margin:4rem 2rem;
     }
 
     &__heading{
         font-weight: 800;
-        padding: 0.5rem 0;
+        padding: $medium-padding 0;
 
         @include desktop{
             font-size: 3rem;
@@ -35,7 +35,7 @@
     }
 
     &__thumbnailbox{
-        padding: 1rem 0rem ;
+        padding: $large-padding 0rem ;
 
         @include tablet{
             border-top: 2px solid $text-field-border;
@@ -89,17 +89,15 @@
 
     &__titlebox{
         width: 100%;
-        padding:0.5rem 0;
+        padding:$medium-padding 0;
     }
 //Create Mixins for thse two
     &__inputbox{
         width:98%;
         height:5vh;
-        background-color: $text-field-background-fill;
-        border: 1px solid $text-field-border;
-        border-radius: 5%;
         color:black;
-        padding:0 0.5rem;
+        padding:0 $medium-padding;
+        @include inputbox;
 
         @include desktop{
             margin: 1rem 0rem;
@@ -109,9 +107,8 @@
     &__videodescription{
         width:98%;
         height:15vh;
-        background-color: $text-field-background-fill;
-        border: 1px solid $text-field-border;
-        padding:0.5rem 0.5rem;
+        @include inputbox;
+        padding:$medium-padding $medium-padding;
         text-align: unset;
         border-radius: 5%;
 
@@ -126,7 +123,7 @@
             flex-direction: row;
             justify-content: flex-end;
             border-top:2px solid $text-field-border;
-            padding: 1rem 0rem;
+            padding: $large-padding 0rem;
 
         }
 
