@@ -10,8 +10,7 @@ function Comments ({currentVideo}){
             <section className="comment">
                 <article className="comment__container">
                     <div className="comment__numbers">
-                        {currentVideo.comments.length}
-                        Comments</div>
+                        {currentVideo.comments.length}Comments</div>
                     <div className="comment__form">
                         <img className="comment__avatar"
                             src={Avatar}

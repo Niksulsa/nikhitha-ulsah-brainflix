@@ -3,178 +3,178 @@
 @use '../../styles/partials/variables' as *;
 
 
-.upload{
+.upload {
     padding: $medium-padding;
 
-    @include desktop{
+    @include desktop {
         padding: $large-padding 5rem;
-        margin:4rem 2rem;
+        margin: 4rem 2rem;
     }
 
-    &__heading{
+    &__heading {
         font-weight: 800;
         padding: $medium-padding 0;
 
-        @include desktop{
+        @include desktop {
             font-size: 3rem;
         }
 
     }
 
-    &__thumbnail{
-        width:100%;
+    &__thumbnail {
+        width: 100%;
 
-        @include tablet{
-            width:40%;
+        @include tablet {
+            width: 40%;
             object-fit: cover;
         }
 
-        @include desktop{
-            width:100%;
+        @include desktop {
+            width: 100%;
         }
     }
 
-    &__thumbnailbox{
-        padding: $large-padding 0rem ;
+    &__thumbnailbox {
+        padding: $large-padding 0;
 
-        @include tablet{
+        @include tablet {
             border-top: 2px solid $text-field-border;
         }
 
-        @include desktop{
-            width:40%;
+        @include desktop {
+            width: 40%;
             border-top: none;
         }
     }
 
-    &__thumbnailheading{
-        color:$text-label-style;
+    &__thumbnailheading {
+        color: $text-label-style;
         font-size: 0.7rem;
         font-weight: 700;
-        padding:0.3rem 0;
+        padding: 0.3rem 0;
 
-        @include desktop{
+        @include desktop {
             font-size: 1.2rem;
             font-weight: 800;
         }
     }
 
-    &__container{
+    &__container {
 
-        @include desktop{
+        @include desktop {
             display: flex;
             border-top: 3px solid $text-field-border;
 
         }
-        
+
     }
 
-    &__formcontainer{
+    &__formcontainer {
 
-        @include desktop{
+        @include desktop {
             width: 60%;
-            margin:2rem 1rem;
+            margin: 2rem 1rem;
         }
     }
 
-    &__title{
-        color:$text-label-style;
+    &__title {
+        color: $text-label-style;
         font-size: 0.7rem;
 
-        @include desktop{
+        @include desktop {
             font-size: 1rem;
         }
 
     }
 
-    &__titlebox{
+    &__titlebox {
         width: 100%;
-        padding:$medium-padding 0;
+        padding: $medium-padding 0;
     }
-//Create Mixins for thse two
-    &__inputbox{
-        width:98%;
-        height:5vh;
-        color:black;
-        padding:0 $medium-padding;
+    // Create Mixins for thse two
+    &__inputbox {
+        width: 98%;
+        height: 5vh;
+        color: black;
+        padding: 0 $medium-padding;
         @include inputbox;
 
-        @include desktop{
-            margin: 1rem 0rem;
+        @include desktop {
+            margin: 1rem 0;
         }
     }
 
-    &__videodescription{
-        width:98%;
-        height:15vh;
+    &__videodescription {
+        width: 98%;
+        height: 15vh;
         @include inputbox;
-        padding:$medium-padding $medium-padding;
+        padding: $medium-padding $medium-padding;
         text-align: unset;
         border-radius: 5%;
 
     }
 
-    &__buttonbox{
+    &__buttonbox {
         display: flex;
         flex-direction: column;
-        margin:1rem 0;
+        margin: 1rem 0;
 
-        @include tablet{
+        @include tablet {
             flex-direction: row;
             justify-content: flex-end;
-            border-top:2px solid $text-field-border;
-            padding: $large-padding 0rem;
+            border-top: 2px solid $text-field-border;
+            padding: $large-padding 0;
 
         }
 
     }
 
-    &__cancel{
-        color:$button;
+    &__cancel {
+        color: $button;
         font-weight: 900;
-        border:none;
+        border: none;
         background-color: white;
-        order:1;
+        order: 1;
         margin: 0.5rem;
 
-        @include tablet{
+        @include tablet {
             margin: 0 2rem;
         }
 
-        @include desktop{
+        @include desktop {
             font-size: 1.2rem;
         }
     }
 
-    &__publish{
-        background-color:$button;
-        color:#fff;
-        border:none;
-        width:98%;
-        height:5vh;
+    &__publish {
+        background-color: $button;
+        color: #fff;
+        border: none;
+        width: 98%;
+        height: 5vh;
         border-radius: 5%;
         margin: 0.5rem;
 
-        @include tablet{
-            width:70%;
-            height:6vh;
+        @include tablet {
+            width: 70%;
+            height: 6vh;
         }
 
-        @include desktop{
+        @include desktop {
             font-size: 1.2rem;
         }
     }
 
-    &__publishbox{
-        width:98%;
+    &__publishbox {
+        width: 98%;
 
-        @include tablet{
-            width:20%;
+        @include tablet {
+            width: 20%;
             order: 1;
         }
 
-        @include desktop{
-            width:40%;
+        @include desktop {
+            width: 40%;
             text-align: center;
         }
     }

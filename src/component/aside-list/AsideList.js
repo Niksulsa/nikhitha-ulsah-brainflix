@@ -1,4 +1,3 @@
-
 import './asideList.scss';
 import {NavLink} from 'react-router-dom';
 
