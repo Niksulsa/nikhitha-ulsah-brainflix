@@ -10,9 +10,14 @@ export default class UploadPage extends Component {
         title: "",
         description: ""
     };
+    
 
     handleSubmit = (event) => {
         event.preventDefault();
+        const newVideo={
+            "title":event.target.title.value,
+            "description":event.target.description.value
+        }
         this.props.history.push('/')
         setTimeout(() => {
             swal( {title: "Good job!",

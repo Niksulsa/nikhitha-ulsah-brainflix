@@ -10,6 +10,7 @@ import '../../styles/App.scss';
 
 
 
+
 class HomePage extends React.Component {
     state = {
         videos: [],
@@ -17,12 +18,12 @@ class HomePage extends React.Component {
     };
 
     getVideoId(id) {
-        axios.get("http://localhost:8080/videos"+id).then((response) => {
+        axios.get(`http://localhost:8080/videos/${id}`).then((response) => {
             //console.log(response)
             this.setState({currentVideo: response.data})
         })
     }
-
+  
 
     getVideo = () => {
         if (this.props.match.params.videoId) {

@@ -1,11 +1,10 @@
 const express = require ('express');
 const router = express.Router();
 const fs = require('fs');
-const { parse } = require('path');
-
-//const uniqid = require('uniqid'); 
+const uuid= require('uuid')
 
 const videoFilePath = './data/videoDetails.json';
+
 
 const readVideos = () => {
   const fileContent = fs.readFileSync(videoFilePath);
@@ -14,85 +13,49 @@ const readVideos = () => {
 }
 
 // GET all videos endpoint
-router.get('/', (_req, res) => {
-  try {
-    const videoList = readVideos();
-    return res.status(200).json(videoList);
-  } catch(err) {
-    return res.status(500).json({ error: "File cannot be read." }) 
-  }
-});
-
-// for this endpoint to match, it needs to be '/notes/latest'
 router.get('/videos', (_req, res) => {
-  const videoDetails=video.map((video)=>{
-    return {
-      id: uuid(),
+  const videos=readVideos();
+  const videoList=videos.map(video=>{
+    return{
+      id: video.id,
       title: video.id,
       channel: video.channel,
-      image: video.image,
-      description: video.description,
-      views: video.views,
-      likes: video.likes,
-      duration: video.duration,
-      video: video.video,
-      timestamp: video.timestamp,
-      comments:[]
+      image: video.image,    
     }
   })
-  return res.status(200).json(videos)
+  res.json(videoList)
 });
 
-router.get('videos/:videosId',(_req,res)=>{
-  const foundVideos= videos.filter(video=> videoId ===parse(req.params.id))
+//GET request for selected video id
+router.get('/videos/:id', (_req, res) => {
+  const foundVideos= videos.find(video=> video.id === _req.params.id)
   if (!foundVideos){
-    res.status(404).send("Page Not Found").json(video);
+    res.status(404).json("Page Not Found")
+  }else{
+    res.json(foundVideos);
   }
-  res.send(foundVideos)
-})
+});
 
+//POST request for posting new videos
 router.post('/videos', (req, res) => {
-  console.log(req.body)
 
-  videos.push({
+  const newVideo={
     id: uuid(),
-    title: "",
-    channel: "",
-    image: "",
-    description: "",
-    views: "",
-    likes: "",
-    duration: "",
-    video: "",
+    title: req.body.title,
+    channel: req.body.channel,
+    image: req.body.image,
+    description: req.body.description,
+    views: 1500,
+    likes: 1200,
     timestamp: Date.now,
     comments:[]
-  });
-  fs.writeFileSync(videoFilePath, JSON.stringify(videoList));
-  res.json(videos);
-});
-/*
-// POST a new video endpoint
-router.post('POST/videos', (req, res) => {
-  console.log('Request body object: ', req.body);
-
-  // Create a new video object with unique ID
-  const newVideo = {
-    id: uniqid(),
-    title: req.body.title,
-    description: req.body.description
   }
-
-
-  const videoList = readVideo();
-
-  // Push new Video into videoList
-  videoList.push(newVideo);
-
+  if(!newVideo.title || !newVideo.description){
+    return res.status(400).send("Please fill in details")
+  }
+  videos.push(newVideo);
   fs.writeFileSync(videoFilePath, JSON.stringify(videoList));
+  res.json(newVideo.id);
+});
 
- 
-  return res.status(201).json(newVideo);
-});*/
-
-// Finally, export the router for use in index.js
 module.exports = router;

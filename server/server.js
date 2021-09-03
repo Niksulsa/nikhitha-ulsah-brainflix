@@ -12,26 +12,6 @@ app.use((_req, _res, next) => {
     console.log('Incoming Request');
     next();
 });
-
-app.post('/videos', (req, res) => {
-  console.log(req.body)
-
-  videos.push({
-    id: uuid(),
-    title: "",
-    channel: "",
-    image: "",
-    description: "",
-    views: "",
-    likes: "",
-    duration: "",
-    video: "",
-    timestamp: Date.now,
-    comments:[]
-  });
-
-  res.json(videos);
-});
 //app.use(express.static('assets'));
 
 app.use(express.json());

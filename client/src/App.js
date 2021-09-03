@@ -15,7 +15,7 @@ function App() {
                     component={UploadPage}/>
                 <Route path="/" exact 
                     component={HomePage}/>
-                <Route path="/:videoId"
+                <Route path="/videos/:id"
                     component={HomePage}/>       
             </Switch>
         </BrowserRouter>
