@@ -16,15 +16,8 @@ app.use((_req, _res, next) => {
 
 app.use(express.json());
 
-app.use('/videos', videoRoutes);
+app.use('/', videoRoutes);
 
-app.route('/videos/:videosId').get((_req, res) => {
-  const foundVideos= videos.find(video=> videoId ===parse(req.params.video.id))
-  if (!foundVideos){
-    res.status(404).send("Page Not Found")
-  }
-  res.send(foundVideos)
-});;
 
 app.listen(PORT,()=>{
     console.log("Server is running fine")

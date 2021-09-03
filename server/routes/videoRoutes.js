@@ -13,7 +13,7 @@ const readVideos = () => {
 }
 
 // GET all videos endpoint
-router.get('/videos', (_req, res) => {
+router.get('/', (_req, res) => {
   const videos=readVideos();
   const videoList=videos.map(video=>{
     return{
@@ -27,7 +27,8 @@ router.get('/videos', (_req, res) => {
 });
 
 //GET request for selected video id
-router.get('/videos/:id', (_req, res) => {
+router.get('/:id', (_req, res) => {
+  const videos=readVideos();
   const foundVideos= videos.find(video=> video.id === _req.params.id)
   if (!foundVideos){
     res.status(404).json("Page Not Found")
@@ -37,7 +38,7 @@ router.get('/videos/:id', (_req, res) => {
 });
 
 //POST request for posting new videos
-router.post('/videos', (req, res) => {
+router.post('/', (req, res) => {
 
   const newVideo={
     id: uuid(),
