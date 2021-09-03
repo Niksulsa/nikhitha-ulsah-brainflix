@@ -3,8 +3,8 @@ import {AsideList} from '../../component/aside-list/AsideList';
 import Hero from '../../component/hero-container/Hero';
 import Details from '../../component/details/Details';
 import Comments from '../../component/comments/Comments';
-import {API_URL} from '../../utils/Utils';
-import {API_KEY} from '../../utils/Utils';
+//import {API_URL} from '../../utils/Utils';
+//import {API_KEY} from '../../utils/Utils';
 import axios from 'axios';
 import '../../styles/App.scss';
 
@@ -17,7 +17,7 @@ class HomePage extends React.Component {
     };
 
     getVideoId(id) {
-        axios.get("https://project-2-api.herokuapp.com/videos/"+ id +"?api_key=0970314e-fe04-430a-97c4-37d75de82864").then((response) => {
+        axios.get("http://localhost:8080/videos"+id).then((response) => {
             //console.log(response)
             this.setState({currentVideo: response.data})
         })
@@ -28,7 +28,7 @@ class HomePage extends React.Component {
         if (this.props.match.params.videoId) {
             this.getVideoId(this.props.match.params.videoId)
         } else {
-            axios.get(`${API_URL}?api_key=${API_KEY}`).then((response) => {
+            axios.get("http://localhost:8080/videos").then((response) => {
                 //console.log(response.data)
                 this.getVideoId(response.data[0].id)
             })
@@ -37,7 +37,7 @@ class HomePage extends React.Component {
 
     componentDidMount() {
         //console.log("Mounted");
-        axios.get(`${API_URL}?api_key=${API_KEY}`).then((response) => {
+        axios.get("http://localhost:8080/videos").then((response) => {
             this.setState({videos: response.data})
         });
         this.getVideo();
