@@ -22,8 +22,9 @@ export default function UploadPage(props) {
 
         }).then((response) => {
             console.log(response.data);
+        }).catch((error)=>{
+            console.log(error)
         })
-
         props.history.push('/')
         setTimeout(() => {
             swal({title: "Good job!", text: "You published the video sucessfully", icon: "success"});

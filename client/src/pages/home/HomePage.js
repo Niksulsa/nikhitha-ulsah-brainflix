@@ -19,7 +19,9 @@ class HomePage extends React.Component {
         axios.get(`${API_URL}/videos/${id}`).then((response) => {
             //console.log(response)
             this.setState({currentVideo: response.data })
-        })
+        }).catch((error)=>{
+            console.log(error)
+        });
     }
 
 
@@ -28,6 +30,8 @@ class HomePage extends React.Component {
         axios.get(`${API_URL}/videos`).then(response => {
             this.setState({videos: response.data})
             this.getVideoId(response.data[0].id);
+        }).catch((error)=>{
+            console.log(error)
         });
     };
 
@@ -37,6 +41,8 @@ class HomePage extends React.Component {
             this.getVideoId(this.props.match.params.id);
         }
     };
+
+    
 
     render() { 
        
@@ -63,7 +69,7 @@ class HomePage extends React.Component {
                     </div>
                     <div className="content__right">
                         <AsideList videoItems={filteredVideo}
-                        selectedVideo={this.currentVideo}/>
+                        selectedVideo={this.currentVideo} />
                     </div>
                 </div>
             </div>
