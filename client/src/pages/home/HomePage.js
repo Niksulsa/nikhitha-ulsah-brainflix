@@ -3,11 +3,9 @@ import {AsideList} from '../../component/aside-list/AsideList';
 import Hero from '../../component/hero-container/Hero';
 import Details from '../../component/details/Details';
 import Comments from '../../component/comments/Comments';
-//import {API_URL} from '../../utils/Utils';
-//import {API_KEY} from '../../utils/Utils';
-import axios from 'axios';
+import {API_URL} from '../../utils/Utils';
+import axios from "axios";
 import '../../styles/App.scss';
-
 
 
 
@@ -17,40 +15,27 @@ class HomePage extends React.Component {
         currentVideo: null
     };
 
-    getVideoId(id) {
-        axios.get(`http://localhost:8080/videos/${id}`).then((response) => {
+    getVideoId=(id)=> {
+        axios.get(`${API_URL}/videos/${id}`).then((response) => {
             //console.log(response)
-            this.setState({currentVideo: response.data})
+            this.setState({currentVideo: response.data })
         })
     }
-  
 
-    getVideo = () => {
-        if (this.props.match.params.videoId) {
-            this.getVideoId(this.props.match.params.videoId)
-        } else {
-            axios.get("http://localhost:8080/videos").then((response) => {
-                //console.log(response.data)
-                this.getVideoId(response.data[0].id)
-            })
-        }
-    };
 
     componentDidMount() {
         //console.log("Mounted");
-        axios.get("http://localhost:8080/videos").then((response) => {
+        axios.get(`${API_URL}/videos`).then(response => {
             this.setState({videos: response.data})
+            this.getVideoId(response.data[0].id);
         });
-        this.getVideo();
-        // console.log(videoDetails);
     };
 
     componentDidUpdate(previousProps) {
         //console.log(previousProps);
-        if (this.props.match.params.videoId !== previousProps.match.params.videoId) {
-            this.getVideo();
+        if (this.props.match.params.id !== previousProps.match.params.id) {
+            this.getVideoId(this.props.match.params.id);
         }
-
     };
 
     render() { 
@@ -77,7 +62,8 @@ class HomePage extends React.Component {
                             this.state.currentVideo}/>
                     </div>
                     <div className="content__right">
-                        <AsideList videoItems={filteredVideo}/>
+                        <AsideList videoItems={filteredVideo}
+                        selectedVideo={this.currentVideo}/>
                     </div>
                 </div>
             </div>

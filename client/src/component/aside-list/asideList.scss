@@ -29,6 +29,9 @@
             width:50%;
             
         }
+        @include tablet{
+            width:50%;
+        }
     }
 
     &__carditem{
@@ -36,7 +39,7 @@
         text-decoration: none;
         color:$navigation-background-para;
         @include tablet{
-            width:60%;
+            width:40%;
         }
 
         @include desktop{
@@ -61,7 +64,7 @@
     
     &__image{
          width:100%;
-         height:15vh; 
+         height:10vh; 
     
         @include desktop{
               width:100%;
