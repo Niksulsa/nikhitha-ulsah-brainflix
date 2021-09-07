@@ -11,8 +11,22 @@ const readVideo = () => {
     return parsedContent;
   }
 
-router.get('/videos/:id/comments',(req,res)=>{
+router.get('/:id/comments',(req,res)=>{
     const videos= readVideo();
     const selectedVideo=videos.find((video)=>video.id===req.body.id);
     res.json(selectedVideo.comments);
 })  
+
+router.post("/:id/comments",(req,res)=>{
+    const videos=readVideo();
+    const currentVideo=videos.find((video)=> video.id===req.params.id);
+    let newComment={
+        id=uuid(),
+        name:req.body.name,
+        comment:req.body.comment,
+        likes:0,
+        timestamp:Date.now()
+    }
+currentVideo.comments.push(newComment);
+})
+

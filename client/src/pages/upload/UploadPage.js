@@ -13,13 +13,15 @@ export default function UploadPage(props) {
         event.preventDefault();
         const title=formInput.current.title.value;
         const description=formInput.current.description.value;
+        if (!title || !description) {
+            return alert("Fill in more details");
+        } if (title.length < 6 && description.length<6) {
+            return alert("Fill in more details");
+        }
 
         axios.post(`${API_URL}/videos`, {
             title: title,
             description: description,
-        
-
-
         }).then((response) => {
             console.log(response.data);
         }).catch((error)=>{
@@ -29,10 +31,19 @@ export default function UploadPage(props) {
         setTimeout(() => {
             swal({title: "Good job!", text: "You published the video sucessfully", icon: "success"});
         }, 1000);
-    };
+    }
 
-
+    // const isFormValid = () => {
+    //     const title=formInput.current.title.value;
+    //     const description=formInput.current.description.value;
+    //     if (!title || !description) {
+    //         return alert("Fill in more details");
+    //     } if (title.length < 6 && description.length<6) {
+    //         return alert("Fill in more details");
+    //     }
+    // }
     
+
         return (
             <section className="upload">
                 <div>

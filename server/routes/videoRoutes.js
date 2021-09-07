@@ -1,7 +1,7 @@
 const express = require ('express');
 const router = express.Router();
 const fs = require('fs');
-const uuid= require('uuid')
+const uniqid =require('uniqid')
 
 const videoFilePath = './data/videoDetails.json';
 
@@ -14,49 +14,42 @@ const readVideos = () => {
 
 // GET all videos endpoint
 router.get('/', (_req, res) => {
-  const videos=readVideos();
-  const videoList=videos.map(video=>{
-    return{
-      id: video.id,
-      title: video.id,
-      channel: video.channel,
-      image: video.image,    
-    }
-  })
-  res.json(videoList)
+  try {
+    const videoData = readVideos();
+    return res.status(200).json(videoData);
+  } catch(err) {
+    return res.status(500).json({ error: "File cannot be read." }) 
+  }
 });
 
 //GET request for selected video id
-router.get('/:id', (_req, res) => {
+router.get('/:id', (req, res) => {
   const videos=readVideos();
-  const foundVideos= videos.find(video=> video.id === _req.params.id)
+  const foundVideos= videos.find(video=> video.id === req.params.id)
+  console.log(foundVideos)
   if (!foundVideos){
     res.status(404).json("Page Not Found")
-  }else{
-    res.json(foundVideos);
   }
-});
+    res.json(foundVideos);
+  });
 
 //POST request for posting new videos
 router.post('/', (req, res) => {
-
+  const publishVideo=readVideos();
   const newVideo={
-    id: uuid(),
+    id: uniqid(),
     title: req.body.title,
-    channel: req.body.channel,
-    image: req.body.image,
+    channel: "Lorem",
+    image: "http://localhost:8080/images/image9.jpg",
     description: req.body.description,
-    views: 1500,
-    likes: 1200,
-    timestamp: Date.now,
-    comments:[]
+    views: "1500",
+    likes: "1200",
+    timestamp: Date.now(),
+    comments:[],
   }
-  if(!newVideo.title || !newVideo.description){
-    return res.status(400).send("Please fill in details")
-  }
-  videos.push(newVideo);
-  fs.writeFileSync(videoFilePath, JSON.stringify(videoList));
-  res.json(newVideo.id);
+  publishVideo.push(newVideo);
+  fs.writeFileSync(videoFilePath, JSON.stringify(publishVideo));
+  return res.status(201).json(newVideo);
 });
 
 module.exports = router;

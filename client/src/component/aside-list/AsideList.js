@@ -5,7 +5,7 @@ export const AsideList=({videoItems})=>(
     <div className="aside">
         <p className="aside__next">NEXT VIDEO</p>
         {videoItems.map((video)=>(
-                <NavLink key={video.id} to={`/videos/${video.id}`} onClick={window.scrollTo(0, 0)}className='aside__carditem'>
+                <NavLink key={video.id} to={`/videos/${video.id}`} onClick={window.scrollTo(0, 0)} className='aside__carditem'>
                      <div className="aside__imagebox">
                          <img className="aside__image" key={video.id} src={video.image} alt="aside-images"/>
                     </div> 
